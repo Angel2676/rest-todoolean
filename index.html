@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <input id="nuova-voce" data-id2={{indice}} type="text" name="" value="" placeholder="inserisci una nuova voce">
+        <button id="inserisci"type="button" name="button">inserisci</button>
+        <ol class="todos"></ol>
+
+
+
+        <script id="entry-template" type="text/x-handlebars-template" placeholder="Ciao">
+            <li id="change" data-id={{id}}>{{text}} <span class="delete">X</span> </li>
+        </script>
+
+        <script id="delete-template" type="text/x-handlebars-template">
+            <input id="change-voice" data-id={{indice2}} type="text" name="" value="{{text}}" placeholder="inserisci un nuovo testo">{{fonte}}
+        </script>
+
+        <script src="app/script.js" charset="utf-8"></script>
+    </body>
+</html>

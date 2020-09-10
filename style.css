@@ -1,0 +1,19 @@
+.todos{
+    font-size: 22px;
+}
+
+.delete{
+    color: red;
+}
+
+#change-voice{
+    display: inline-block;
+}
+
+.hidden{
+    display: none;
+}
+
+.view{
+    dispaly: block;
+}
