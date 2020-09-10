@@ -15,48 +15,44 @@ $(document).ready(function(){
         createElement(newElement);
     });
 
-    $(document).on("click","#change",function(){
-        $(this).addClass("hidden").attr("data-id");
-        var source = $("#delete-template").html();
-        var template = Handlebars.compile(source);
-        var context = $("#change-voice").attr("data-id3");
-        var html = template(context);
-        $(".todos").append(html);
-        });
-        $(document).on("dblclick","#change-voice",function(){
-            var newsElement = $(this).val();
-            console.log(newsElement);
-            $.ajax(
-                {
-                    url: "http://157.230.17.132:3017/todos/"+ data-id,
-                    method: "PUT",
-                    data: {
-                        fonte: newsElement,
-                    },
-                    success: function(risposta){
-                        console.log(risposta);
-                        $(".todos").html(" ");
-                        getData();
-                    },
-                    error: function(){
-                        alert("ERRORE")
-                    }
+    $(document).on("click",".testo",function(){
+        var idNewE= $(this);
+        $('.testo').removeClass('hidden');
+        idNewE.addClass('hidden');
 
-            })
-
+        $('.testo').next().addClass('hidden');
+        idNewE.next().removeClass('hidden');
         });
 
-
-
-
-
-
-
+    $(document).on("keydown",".change-voice",function(){
+        var idNewsElement = $(this).parent().attr('data-id');
+            if (event.which== 13|| event.keyCode ==13) {
+                var newsElement = $(this).val();
+                updateElement(idNewsElement,newsElement);
+            };
+        });
 
 }); // fine document
 
 // ***********FUNZIONI**************
-
+// -2 funzione update elemento
+function updateElement(id, valore){
+    $.ajax(
+        {
+            url: "http://157.230.17.132:3017/todos/"+id,
+            method: 'PUT',
+            data: {
+                text: valore
+            },
+            success:function(risposta){
+                $(".todos").html(" ");
+                getData();
+            },
+            error: function(){
+                alert("ERRORE")
+            }
+    })
+}
 
 // -1 funzione creare un elemento
 
@@ -69,7 +65,7 @@ function createElement(elemento){
                     text: elemento
             },
             success: function(risposta){
-                console.log(risposta);
+
                 $(".todos").html(" ");
                 getData();
 

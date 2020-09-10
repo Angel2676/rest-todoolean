@@ -9,19 +9,22 @@
         <title></title>
     </head>
     <body>
-        <input id="nuova-voce" data-id2={{indice}} type="text" name="" value="" placeholder="inserisci una nuova voce">
+        <input id="nuova-voce" type="text" name="" value="" placeholder="inserisci una nuova voce">
         <button id="inserisci"type="button" name="button">inserisci</button>
         <ol class="todos"></ol>
 
 
 
         <script id="entry-template" type="text/x-handlebars-template" placeholder="Ciao">
-            <li id="change" data-id={{id}}>{{text}} <span class="delete">X</span> </li>
+            <li class="lista" id="change" data-id={{id}}>
+                <span class="testo">{{text}}</span>
+                <input class="change-voice hidden" stype="text" name="" value="{{text}}" placeholder="inserisci un nuovo testo"> {{fonte}}
+                <span class="delete">X</span>
+            </li>
+
         </script>
 
-        <script id="delete-template" type="text/x-handlebars-template">
-            <input id="change-voice" data-id={{indice2}} type="text" name="" value="{{text}}" placeholder="inserisci un nuovo testo">{{fonte}}
-        </script>
+
 
         <script src="app/script.js" charset="utf-8"></script>
     </body>
